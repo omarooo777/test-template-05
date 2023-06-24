@@ -1,0 +1,24 @@
+@function nth-children($children...) {
+  @each $size in $sizes {
+    $total: $total + $size;
+  }
+
+  // @each $child in $children {
+
+  // .#{$name} {
+  //   background-color: $color;
+  //   font-size: $font;
+  //   padding: $font / 2;
+  // }
+  // .x:nth-child(#{child}) {
+
+  // }
+  // }
+}
+@each $name, $color, $font in $classes {
+  .#{$name} {
+    background-color: $color;
+    font-size: $font;
+    padding: $font / 2;
+  }
+}

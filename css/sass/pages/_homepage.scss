@@ -1,0 +1,39 @@
+// import mixins
+@use "../helpers/mixins" as *;
+
+// import variables
+@use "../helpers/variables" as *;
+
+.landing {
+  min-height: 100vh;
+  background-image: url(../imgs/landing-01.jpg);
+  background-size: cover;
+  transition: $mainTransition;
+  &::before {
+    content: "";
+    @include overlay(#000, 0.5);
+  }
+  nav {
+    justify-content: space-between;
+    div {
+      flex-grow: 0;
+      .nav-link {
+        color: #fff;
+        transition: $mainTransition;
+        &.active,
+        &:hover {
+          color: $mainColor;
+        }
+      }
+    }
+  }
+  .intro-text {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    h1 span {
+      color: $mainColor;
+    }
+  }
+}

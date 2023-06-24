@@ -1,0 +1,57 @@
+// Media Query Mixins
+@mixin smallS {
+  @media (max-width: 991px) {
+    @content;
+  }
+}
+
+@mixin mediumS {
+  @media (min-width: 992px) and (max-width: 1199px) {
+    @content;
+  }
+}
+
+@mixin largeS {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+// Overlay Mixin
+@mixin overlay($color, $opacity) {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba($color, $opacity);
+}
+
+// property prefixes
+@mixin prefixes($property, $value, $prefixes: ()) {
+  @each $prefix in $prefixes {
+    #{"-" + $prefix + "-" + $property}: $value;
+  }
+  #{$property}: $value;
+}
+
+// animation prefixes
+@mixin keyFrame($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+// circle
+@mixin circle($size, $bg-color: null) {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  background-color: $bg-color;
+}

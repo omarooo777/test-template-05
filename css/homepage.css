@@ -1,0 +1,113 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+.settings-box {
+  z-index: 10000;
+  width: 200px;
+  left: -200px;
+  min-height: 100vh;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.settings-box.open {
+  left: 0;
+}
+.settings-box h4 {
+  padding: 10px;
+}
+.settings-box .toggler-settings {
+  width: 35px;
+  right: -32px;
+  text-align: center;
+  top: 111px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.settings-box .toggler-settings i {
+  padding: 10px 0;
+  width: 100%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.settings-box .color-list {
+  text-align: center;
+}
+.settings-box .color-list li {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+.settings-box .color-list li:nth-child(1) {
+  background-color: #ffc107;
+}
+.settings-box .color-list li:nth-child(2) {
+  background-color: red;
+}
+.settings-box .color-list li:nth-child(3) {
+  background-color: green;
+}
+.settings-box .color-list li:nth-child(4) {
+  background-color: blue;
+}
+.settings-box .color-list li:nth-child(5) {
+  background-color: black;
+}
+
+[dir=rtl] .settings-box .icon {
+  right: auto;
+  left: -32px;
+}
+
+.landing {
+  min-height: 100vh;
+  background-image: url(../imgs/landing-01.jpg);
+  background-size: cover;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.landing::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.landing nav {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.landing nav div {
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+}
+.landing nav div .nav-link {
+  color: #fff;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.landing nav div .nav-link.active, .landing nav div .nav-link:hover {
+  color: #ffc107;
+}
+.landing .intro-text {
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 3;
+}
+.landing .intro-text h1 span {
+  color: #ffc107;
+}
+/*# sourceMappingURL=homepage.css.map */

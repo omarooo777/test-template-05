@@ -1,0 +1,56 @@
+// import variables
+@use "../helpers/variables" as *;
+
+// import mixins
+@use "../helpers/mixins" as *;
+
+.settings-box {
+  z-index: 10000;
+  width: 200px;
+  left: -200px;
+  min-height: 100vh;
+  transition: $mainTransition;
+  &.open {
+    left: 0;
+  }
+  h4 {
+    padding: 10px;
+  }
+  .toggler-settings {
+    width: 35px;
+    right: -32px;
+    text-align: center;
+    top: 111px;
+    border-radius: 4px;
+    cursor: pointer;
+    i {
+      padding: 10px 0;
+      width: 100%;
+      transition: $mainTransition;
+    }
+  }
+  .color-list {
+    text-align: center;
+    li {
+      @include circle(20px);
+      display: inline-block;
+      cursor: pointer;
+      $childrenClasses: (1, #ffc107), (2, red), (3, green), (4, blue),
+        (5, black);
+      @each $child-nubmer, $child-color in $childrenClasses {
+        &:nth-child(#{$child-nubmer}) {
+          background-color: $child-color;
+        }
+      }
+    }
+  }
+}
+
+[dir="rtl"] {
+  .settings-box {
+    .icon {
+      right: auto;
+      left: -32px;
+    }
+  }
+}
