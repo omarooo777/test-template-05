@@ -112,9 +112,14 @@ body {
   cursor: pointer;
   padding: 2px;
   opacity: 0.5;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .settings-box .options-box .language span.active {
   opacity: 1;
+  pointer-events: none;
 }
 
 [dir=rtl] .settings-box {

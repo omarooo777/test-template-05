@@ -93,8 +93,10 @@
         cursor: pointer;
         padding: 2px;
         opacity: 0.5;
+        user-select: none;
         &.active {
           opacity: 1;
+          pointer-events: none;
         }
       }
     }

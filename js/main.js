@@ -91,12 +91,31 @@ randomback.forEach((span) => {
 let langBtn = document.querySelectorAll(".language span");
 let localLanguage = localStorage.getItem("language_option");
 
-let currentLanguage = localLanguage || "en";
+let currentLanguage;
+if (localLanguage !== null) {
+  currentLanguage = localLanguage;
+  langBtn.forEach((lang) => {
+    lang.classList.remove("active");
+  });
+  if (localLanguage == "en") {
+    document.querySelector(".en").classList.add("active");
+  } else if (localLanguage == "ar") {
+    document.querySelector(".ar").classList.add("active");
+  }
+}
 
 langBtn.forEach((lang) => {
   lang.addEventListener("click", () => {
     currentLanguage = lang.dataset.language;
-    window.location.href = `index-${currentLanguage}.html`;
+    if (currentLanguage == "en") {
+      window.location.href = `index.html`;
+    } else {
+      window.location.href = `index-${currentLanguage}.html`;
+    }
     localStorage.setItem("language_option", currentLanguage);
+    langBtn.forEach((lang) => {
+      lang.classList.remove("active");
+    });
+    lang.classList.add("active");
   });
 });
