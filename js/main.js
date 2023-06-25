@@ -88,15 +88,15 @@ randomback.forEach((span) => {
 });
 
 // Change Language Option
-let langBtn = document.querySelectorAll(".language span");
-let localLanguage = localStorage.getItem("language_option");
+// let langBtn = document.querySelectorAll(".language span");
+// let localLanguage = localStorage.getItem("language_option");
 
-let currentLanguage = localLanguage || "en";
+// let currentLanguage = localLanguage || "en";
 
-langBtn.forEach((lang) => {
-  lang.addEventListener("click", () => {
-    currentLanguage = lang.dataset.language;
-    window.location.href = `index-${currentLanguage}.html`;
-    localStorage.setItem("language_option", currentLanguage);
-  });
-});
+// langBtn.forEach((lang) => {
+//   lang.addEventListener("click", () => {
+//     currentLanguage = lang.dataset.language;
+//     window.location.href = `index-${currentLanguage}.html`;
+//     localStorage.setItem("language_option", currentLanguage);
+//   });
+// });
