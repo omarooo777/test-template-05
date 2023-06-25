@@ -119,3 +119,15 @@ langBtn.forEach((lang) => {
     lang.classList.add("active");
   });
 });
+
+// Change Width On Scrolling
+let skillsSection = document.querySelector(".skills");
+let skillsBox = document.querySelectorAll(".skills .progress span");
+
+window.onscroll = function () {
+  if (window.scrollY >= skillsSection.offsetTop) {
+    skillsBox.forEach((skill) => {
+      skill.style.width = skill.dataset.width;
+    });
+  }
+};

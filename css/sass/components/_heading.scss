@@ -1,0 +1,29 @@
+%centerPseudo {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+/* Start Main Title Heading */
+.main-heading {
+  color: var(--main-color);
+  padding: 10px 0;
+  user-select: none;
+  &::before {
+    @extend %centerPseudo;
+    width: 100px;
+    height: 3px;
+    background-color: var(--main-color);
+    bottom: 5px;
+  }
+  &::after {
+    @extend %centerPseudo;
+    width: 11px;
+    height: 11px;
+    background-color: #fff;
+    border: 1px solid var(--main-color);
+    transform: translateX(-55%) rotate(45deg);
+    bottom: 1px;
+  }
+}
+/* End Main Title Heading */

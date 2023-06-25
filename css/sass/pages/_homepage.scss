@@ -4,11 +4,18 @@
 // import variables
 @use "../helpers/variables" as *;
 
+%scrollSnapAlign {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* Start Landing */
 .landing {
   min-height: 100vh;
   background-image: url(../imgs/landing-01.jpg);
   background-size: cover;
   transition: $mainTransition;
+  @extend %scrollSnapAlign;
   &::before {
     content: "";
     @include overlay(#000, 0.5);
@@ -51,3 +58,73 @@
     }
   }
 }
+/* End Landing */
+/* Start About */
+.about {
+  padding: $paddingTopBottom;
+  min-height: 100vh;
+  @extend %scrollSnapAlign;
+  .container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+    .info {
+      flex-basis: 50%;
+      @include smallS {
+        flex-basis: 100%;
+      }
+    }
+    img {
+      max-width: 100%;
+      width: 400px;
+    }
+  }
+}
+/* End About */
+/* Start Our Skills */
+.skills {
+  @extend %scrollSnapAlign;
+  background-color: $sectionColor;
+  padding: $paddingTopBottom;
+  .info {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    img {
+      max-width: 100%;
+    }
+    .progress-box {
+      .progress {
+        background-color: #fff;
+        width: 400px;
+        height: 30px;
+        margin-bottom: 15px;
+        position: relative;
+        span {
+          width: 0;
+          height: 100%;
+          background-color: var(--main-color);
+          transition: 1s;
+          &::after {
+            content: attr(data-width);
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}
+[dir="rtl"] .skills {
+  span::after {
+    right: auto !important;
+    left: 5px;
+  }
+}
+/* End Our Skills */
