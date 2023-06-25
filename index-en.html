@@ -30,13 +30,28 @@
       </div>
       <div class="options-box">
         <div class="colors-box">
+          <h5>Colors</h5>
           <ul class="color-list">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li data-color="#ff5722"></li>
+            <li data-color="#ffc107" class="active"></li>
+            <li data-color="#8bc34a"></li>
+            <li data-color="#03a9f4"></li>
+            <li data-color="#9e9e9e"></li>
           </ul>
+        </div>
+      </div>
+      <div class="options-box">
+        <div class="random-background">
+          <h5>Random Background</h5>
+          <span data-background="yes" class="yes active">Yes</span>
+          <span data-background="no" class="no">No</span>
+        </div>
+      </div>
+      <div class="options-box">
+        <div class="language">
+          <h5>Language</h5>
+          <span data-language="en" class="active">English</span>
+          <span data-language="ar">Arabic</span>
         </div>
       </div>
     </div>
@@ -50,7 +65,7 @@
             >Special Design
           </a>
           <button
-            class="navbar-toggler"
+            class="navbar-toggler shadow-none"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -58,7 +73,7 @@
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <i class="fa-solid fa-bars text-light fs-3"></i>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">

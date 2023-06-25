@@ -24,8 +24,36 @@
   <body>
     <!-- Start Settings -->
     <div class="settings-box bg-white position-absolute">
-      <h4>Settings</h4>
-      <i class="fa-solid fa-gear icon position-absolute bg-white"></i>
+      <h4 class="fw-bold">Settings</h4>
+      <div class="toggler-settings position-absolute bg-white">
+        <i class="fa-solid fa-gear icon"></i>
+      </div>
+      <div class="options-box">
+        <div class="colors-box">
+          <h5>Colors</h5>
+          <ul class="color-list">
+            <li data-color="#ff5722"></li>
+            <li data-color="#ffc107" class="active"></li>
+            <li data-color="#8bc34a"></li>
+            <li data-color="#03a9f4"></li>
+            <li data-color="#9e9e9e"></li>
+          </ul>
+        </div>
+      </div>
+      <div class="options-box">
+        <div class="random-background">
+          <h5>Random Background</h5>
+          <span data-background="yes" class="yes active">Yes</span>
+          <span data-background="no" class="no">No</span>
+        </div>
+      </div>
+      <div class="options-box">
+        <div class="language">
+          <h5>Language</h5>
+          <span data-language="en" class="active">English</span>
+          <span data-language="ar">Arabic</span>
+        </div>
+      </div>
     </div>
     <!-- End Settings -->
     <!-- Start Landing -->
@@ -80,7 +108,6 @@
     </div>
     <!-- End Landing -->
 
-    <script src="./js/all.min.js"></script>
     <script src="./js/bootstrap.bundle.min.js"></script>
     <script src="./js/main.js"></script>
   </body>
