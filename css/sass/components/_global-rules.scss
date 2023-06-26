@@ -7,7 +7,8 @@
 }
 
 html {
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y;
+  scroll-snap-stop: always;
   scroll-behavior: smooth;
 }
 

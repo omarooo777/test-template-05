@@ -131,3 +131,42 @@ window.onscroll = function () {
     });
   }
 };
+
+// Popup Window
+let galleryImgs = document.querySelectorAll(".gallery img");
+let galleryIcon = document.querySelectorAll(".gallery i");
+
+galleryIcon.forEach((icon) => {
+  icon.addEventListener("click", function () {
+    let popupOverlay = document.createElement("div");
+    popupOverlay.className = "popup-overlay";
+    document.body.appendChild(popupOverlay);
+    let popupContainer = document.createElement("div");
+    popupContainer.className = "popup-container";
+    document.body.appendChild(popupContainer);
+    if (icon.parentElement.children[1].alt !== null) {
+      let imgTitle = document.createElement("h4");
+      imgTitle.appendChild(
+        document.createTextNode(icon.parentElement.children[1].alt)
+      );
+      popupContainer.appendChild(imgTitle);
+    }
+    let popupImg = document.createElement("img");
+    popupImg.src = icon.parentElement.children[1].src;
+    popupContainer.appendChild(popupImg);
+    let closeBtn = document.createElement("span");
+    closeBtn.className = "close-button";
+    closeBtn.appendChild(document.createTextNode("X"));
+    popupContainer.appendChild(closeBtn);
+  });
+});
+
+document.addEventListener("click", (e) => {
+  if (
+    e.target.className == "close-button" ||
+    e.target.className == "popup-overlay"
+  ) {
+    document.querySelector(".popup-overlay").remove();
+    document.querySelector(".popup-container").remove();
+  }
+});
