@@ -243,7 +243,7 @@ input[type=number]::-webkit-outer-spin-button {
 /* Start Landing */
 .landing {
   min-height: 100vh;
-  background-image: url("imgs/landing-01.jpg");
+  background-image: url("../imgs/landing-01.jpg");
   background-size: cover;
   -webkit-transition: 0.3s;
   transition: 0.3s;

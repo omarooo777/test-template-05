@@ -6,7 +6,7 @@ function randomizeBackground() {
   if (randomOption) {
     backgroundInterval = setInterval(() => {
       let randomNumber = Math.floor(Math.random() * 5);
-      landing.style.backgroundImage = `url(../imgs/landing-0${
+      landing.style.backgroundImage = `url(imgs/landing-0${
         randomNumber + 1
       }.jpg)`;
     }, 5000);
