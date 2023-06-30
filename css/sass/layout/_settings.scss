@@ -12,6 +12,7 @@
   transition: $mainTransition;
   &.open {
     left: 0;
+    box-shadow: 0 0 10px #ddd;
   }
   h4 {
     padding: 10px;
@@ -66,19 +67,20 @@
       h5 {
         font-size: 15px;
       }
-      span {
-        color: #fff;
-        background-color: #333;
-        width: 60px;
-        display: inline-block;
-        padding: 3px;
-        cursor: pointer;
-        opacity: 0.5;
-        margin-top: 6px;
-        border-radius: 4px;
-        &.active {
-          opacity: 1;
-        }
+    }
+    span {
+      color: #fff;
+      background-color: var(--main-color);
+      width: 60px;
+      display: inline-block;
+      padding: 3px;
+      cursor: pointer;
+      opacity: 0.5;
+      margin-top: 6px;
+      border-radius: 4px;
+      user-select: none;
+      &.active {
+        opacity: 1;
       }
     }
     .language {
@@ -86,20 +88,19 @@
         display: block;
         margin: auto;
         margin-top: 10px;
-        background: #009688;
-        color: #fff;
         width: 85px;
-        border-radius: 6px;
-        cursor: pointer;
-        padding: 2px;
-        opacity: 0.5;
-        user-select: none;
         &.active {
-          opacity: 1;
           pointer-events: none;
         }
       }
     }
+  }
+  .reset-options {
+    font-size: 20px;
+    background-color: #f44336;
+    cursor: pointer;
+    margin: 10px;
+    padding: 5px;
   }
 }
 

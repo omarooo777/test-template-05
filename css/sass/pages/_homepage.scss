@@ -12,7 +12,7 @@
 /* Start Landing */
 .landing {
   min-height: 100vh;
-  background-image: url(../imgs/landing-01.jpg);
+  background-image: url("../imgs/landing-01.jpg");
   background-size: cover;
   transition: $mainTransition;
   @extend %scrollSnapAlign;
@@ -27,8 +27,16 @@
     justify-content: space-between;
     div {
       flex-grow: 0;
+      @include smallS {
+        background-color: rgba(255, 255, 255, 0.9);
+        z-index: 10000;
+        padding: 5px;
+      }
       .nav-link {
         color: #fff;
+        @include smallS {
+          color: rgb(0, 0, 0);
+        }
         transition: $mainTransition;
         &.active,
         &:hover {
@@ -62,7 +70,7 @@
 /* Start About */
 .about {
   padding: $paddingTopBottom;
-  min-height: 100vh;
+  // min-height: 100vh;
   @extend %scrollSnapAlign;
   .container {
     display: flex;
@@ -222,3 +230,222 @@
   }
 }
 /* End Gallery */
+/* Start Timeline */
+.timeline {
+  padding: $paddingTopBottom;
+  background-color: $sectionColor;
+  @include mobilS {
+    padding-top: 70px;
+  }
+  .content-box {
+    &::after {
+      content: "";
+      width: 3px;
+      height: 110%;
+      position: absolute;
+      left: 50%;
+      top: -15px;
+      transform: translateX(-50%);
+      background-color: var(--main-color);
+      @include smallS {
+        top: -30px;
+      }
+    }
+    .year {
+      background-color: var(--main-color);
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 4px 6px;
+      border-radius: 6px;
+      z-index: 2;
+      @include smallS {
+        margin: -30px 0;
+      }
+    }
+    .left,
+    .right {
+      width: calc(50% - 30px);
+      &::before {
+        content: "";
+        border: 15px solid;
+        position: absolute;
+      }
+      &::after {
+        content: "";
+        border: 3px solid var(--main-color);
+        position: absolute;
+        @include circle(20px, #fff);
+        z-index: 2;
+      }
+    }
+    .left {
+      top: 50px;
+      @include mobilS {
+        margin-bottom: 100px;
+      }
+      &::before {
+        border-color: transparent transparent transparent #fff;
+        right: -30px;
+      }
+      &::after {
+        right: -40px;
+        top: 20px;
+      }
+    }
+    .right {
+      left: calc(50% + 30px);
+      @include mobilS {
+        left: 0;
+        margin-bottom: 45px;
+      }
+      &::before {
+        border-color: transparent #fff transparent transparent;
+        left: -30px;
+      }
+      &::after {
+        left: -40px;
+        top: 20px;
+      }
+    }
+    .left,
+    .right {
+      @include mobilS {
+        width: 100%;
+        z-index: 10;
+        &::before {
+          right: auto;
+          top: -30px;
+          border-color: transparent transparent #fff transparent;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        &::after {
+          top: -38px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+      h3 {
+        color: var(--main-color);
+      }
+    }
+  }
+}
+/* End Timeline */
+/* Start Features */
+.features {
+  padding: $paddingTopBottom;
+  @extend %scrollSnapAlign;
+  h4::after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    background-color: var(--main-color);
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -14px;
+  }
+  img {
+    max-width: 100%;
+    width: 60px;
+  }
+}
+/* End Features */
+/* Start Testimonials */
+.testimonials {
+  padding: $paddingTopBottom;
+  &::before,
+  &::after {
+    content: "";
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+  }
+  &::before {
+    left: 0;
+    background-color: var(--main-color);
+  }
+  &::after {
+    right: 0;
+    background-color: #333;
+  }
+  .ts-box {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    @include smallS {
+      display: block;
+    }
+    .box {
+      margin-bottom: 15px;
+      .info {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        img {
+          width: 70px;
+        }
+        p {
+          font-size: 13px;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+/* End Testimonials */
+/* Start Contact */
+.contact {
+  background-image: url("../imgs/contact-01.png");
+  padding: $paddingTopBottom;
+
+  &::after {
+    content: "";
+    @include overlay(white, 0.5);
+  }
+  .container {
+    z-index: 2;
+    form {
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      gap: 10px;
+      div {
+        @include largeS {
+          flex-basis: 35%;
+        }
+      }
+      input,
+      textarea {
+        display: block;
+        padding: 5px;
+        width: 100%;
+        &:not(:last-child) {
+          margin-bottom: 10px;
+        }
+      }
+      input:focus,
+      textarea:focus {
+        outline: 1px solid var(--main-color);
+        border-color: transparent;
+      }
+      input {
+        height: 40px;
+      }
+      input[type="submit"] {
+        background-color: var(--main-color);
+        color: #fff;
+        border-color: transparent;
+      }
+      textarea {
+        height: 130px;
+        resize: none;
+      }
+    }
+  }
+}
+/* End Contact */

@@ -102,6 +102,15 @@ if (localLanguage !== null) {
   } else if (localLanguage == "ar") {
     document.querySelector(".ar").classList.add("active");
   }
+  // console.log(document.querySelector("html").lang);
+
+  if (document.querySelector("html").lang !== currentLanguage) {
+    if (currentLanguage == "en") {
+      window.location.href = `index.html`;
+    } else {
+      window.location.href = `index-${currentLanguage}.html`;
+    }
+  }
 }
 
 langBtn.forEach((lang) => {
@@ -124,13 +133,13 @@ langBtn.forEach((lang) => {
 let skillsSection = document.querySelector(".skills");
 let skillsBox = document.querySelectorAll(".skills .progress span");
 
-window.onscroll = function () {
+window.addEventListener("scroll", function () {
   if (window.scrollY >= skillsSection.offsetTop) {
     skillsBox.forEach((skill) => {
       skill.style.width = skill.dataset.width;
     });
   }
-};
+});
 
 // Popup Window
 let galleryImgs = document.querySelectorAll(".gallery img");
@@ -170,3 +179,74 @@ document.addEventListener("click", (e) => {
     document.querySelector(".popup-container").remove();
   }
 });
+
+// Bullets
+let allSections = document.querySelectorAll("section");
+let bulletsContainer = document.querySelector(".bullets-nav");
+let allBullets = document.querySelectorAll(".bullets-nav .bullet");
+
+allBullets.forEach((bullet) => {
+  bullet.addEventListener("click", () => {
+    document.querySelector(`.${bullet.dataset.sectionclass}`).scrollIntoView({
+      behavior: "smooth",
+    });
+  });
+});
+
+window.addEventListener("scroll", () => {
+  let currentSection;
+  allSections.forEach((section) => {
+    const sectionTop = section.offsetTop;
+    if (window.scrollY >= sectionTop - 200) {
+      currentSection = section.getAttribute("id");
+    }
+  });
+  allBullets.forEach((bullet) => {
+    bullet.classList.remove("active");
+    if (currentSection == bullet.dataset.sectionclass) {
+      bullet.classList.add("active");
+    }
+  });
+});
+
+// Show Bullets Option
+let bulletsOption = document.querySelectorAll(".toggler-bullets span");
+let localBullet = localStorage.getItem("bullet_option");
+
+if (localBullet !== null) {
+  bulletsOption.forEach((span) => {
+    span.classList.remove("active");
+  });
+  if (localBullet == "show") {
+    document.querySelector(".toggler-bullets .show").classList.add("active");
+    bulletsContainer.style.display = "block";
+  } else if (localBullet == "hide") {
+    document.querySelector(".toggler-bullets .hide").classList.add("active");
+    bulletsContainer.style.display = "none";
+  }
+}
+
+bulletsOption.forEach((span) => {
+  span.addEventListener("click", () => {
+    bulletsOption.forEach((span) => {
+      span.classList.remove("active");
+    });
+    span.classList.add("active");
+    if (span.dataset.show == "yes") {
+      bulletsContainer.style.display = "block";
+      localStorage.setItem("bullet_option", "show");
+    } else {
+      bulletsContainer.style.display = "none";
+      localStorage.setItem("bullet_option", "hide");
+    }
+  });
+});
+
+// Reset Options BTN
+document.querySelector(".reset-options").onclick = function () {
+  localStorage.clear();
+  // localStorage.removeItem("color_option");
+  // localStorage.removeItem("background_option");
+  // localStorage.removeItem("bullet_option");
+  window.location.reload();
+};
