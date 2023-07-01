@@ -475,13 +475,23 @@
         </div>
         <form>
           <div>
-            <input type="text" placeholder="Your Name" spellcheck="false" />
-            <input type="number" placeholder="Your Phone" />
-            <input type="email" placeholder="Your Email" spellcheck="false" />
-            <input type="text" placeholder="Subject" />
+            <input
+              type="text"
+              placeholder="Your Name"
+              dir="auto"
+              spellcheck="false"
+            />
+            <input type="number" placeholder="Your Phone" dir="auto" />
+            <input
+              type="email"
+              placeholder="Your Email"
+              dir="auto"
+              spellcheck="false"
+            />
+            <input type="text" placeholder="Subject" dir="auto" />
           </div>
           <div>
-            <textarea placeholder="Message"></textarea>
+            <textarea placeholder="Message" dir="auto"></textarea>
             <input type="submit" value="Send" />
           </div>
         </form>
@@ -496,6 +506,15 @@
       </div>
     </footer>
     <!-- End Footer -->
+    <!-- Start Loader -->
+    <div class="loader" id="loader">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <!-- End Loader -->
     <script src="./js/main.js"></script>
     <script src="./js/bootstrap.bundle.min.js"></script>
     <!-- <script src="./js/all.min.js"></script> -->

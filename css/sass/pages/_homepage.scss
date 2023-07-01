@@ -331,6 +331,20 @@
     }
   }
 }
+[dir="rtl"] {
+  .left {
+    right: calc(50% + 30px);
+    @include mobilS {
+      right: auto;
+      &::after {
+        right: auto !important;
+      }
+    }
+  }
+  .right {
+    left: auto !important;
+  }
+}
 /* End Timeline */
 /* Start Features */
 .features {

@@ -45,4 +45,19 @@
     }
   }
 }
+[dir="rtl"] {
+  .bullets-nav {
+    right: auto;
+    left: 0;
+    .bullet::before {
+      left: auto;
+      right: -100px;
+    }
+    .bullet::after {
+      left: auto;
+      right: -12px;
+      border-color: transparent var(--main-color) transparent transparent;
+    }
+  }
+}
 /* End Bullets */

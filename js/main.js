@@ -250,3 +250,20 @@ document.querySelector(".reset-options").onclick = function () {
   // localStorage.removeItem("bullet_option");
   window.location.reload();
 };
+
+// Loader Page
+document.onreadystatechange = function () {
+  if (document.readyState !== "complete") {
+    document.querySelector("body").style.visibility = "hidden";
+    document.querySelectorAll("section").forEach((section) => {
+      section.style.display = "none";
+    });
+    document.querySelector("#loader").style.visibility = "visible";
+  } else {
+    document.querySelector("body").style.visibility = "visible";
+    document.querySelectorAll("section").forEach((section) => {
+      section.style.display = "block";
+    });
+    document.querySelector("#loader").style.display = "none";
+  }
+};

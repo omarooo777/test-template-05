@@ -1,0 +1,5 @@
+// import global rules
+@use "./sass/components/global-rules" as *;
+
+// import not found page
+@use "./sass/pages/not-found-404";
