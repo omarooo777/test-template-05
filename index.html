@@ -517,6 +517,12 @@
     <!-- End Loader -->
     <script src="./js/main.js"></script>
     <script src="./js/bootstrap.bundle.min.js"></script>
-    <!-- <script src="./js/all.min.js"></script> -->
+    <script>
+      // Check if the current page is the 404 error page
+      if (window.location.pathname === "/404.html") {
+        // Display a custom message or perform any other actions on the 404 page
+        console.log("Page not found");
+      }
+    </script>
   </body>
 </html>
